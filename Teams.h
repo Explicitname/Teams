@@ -19,20 +19,24 @@ private:
 	std::string locTeam;
 	std::string colorTeam;
 	std::string mascotTeam;
-	int winTeam = 0;
-	int lossTeam = 0;
-	int tiesTeam = 0;
+	int* winTeam;
+	int* lossTeam;
+	int* tiesTeam;
 
 public:
-	Team(){};
-	void addTeam(std::string newName,
-			std::string newSport,
-			std::string newLoc,
-			std::string newColor,
-			std::string newMascot,
-			int newWins,
-			int newLoss,
-			int newTie);
+	Team(std::string newName, std::string newSport, std::string newLoc, std::string newColor, std::string newMascot, int newWins, int newLoss, int newTie)
+	{
+		nameTeam = newName;
+		sportOfTeam = newSport;
+		locTeam = newLoc;
+		colorTeam = newColor;
+		mascotTeam = newMascot;
+		winTeam = &newWins;
+		lossTeam = &newLoss;
+		tiesTeam = &newTie;
+		std::cout << "Class Intialized!" << std::endl << std::endl;
+	};
+	Team createTeam();
 	void printTeam();
 
 
